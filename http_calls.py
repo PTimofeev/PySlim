@@ -215,6 +215,10 @@ class RestTools(HttpCall):
 
         return str(self.getAttributeFromResponse(attr, url, args))
 
+    def getHeaderFromLastResponse(self, header):
+        global lastResponse        
+        return lastResponse.info()[header]
+
     def currentTimeDiff(self, attr, url, args=None):
         return DateUtils().js_time_diff(self.getAttributeFromResponse(attr, url, args))
 
